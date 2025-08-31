@@ -1,0 +1,34 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  text-embeddings-inference:
+    image: ghcr.io/huggingface/text-embeddings-inference:1.8
+    ports:
+      - "8080:80"
+    volumes:
+      - ./data:/data  # Mounts the local ./data directory to /data in the container
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+              count: 1  # Explicitly request 1 GPU; use 'all' for all GPUs or specify device IDs
+    environment:
+      - MODEL_ID=Qwen/Qwen3-Embedding-0.6B  # Model ID as an environment variable
+    command: --model-id $$MODEL_ID  # Pass the model ID as a command argument
+
+  text-embeddings-client:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    depends_on:
+      - text-embeddings-inference
+    volumes:
+      - ./configs/docker.yaml:/app/configs/config.yaml:ro
+
+networks:
+  default:
+    name: text-embeddings-network
+

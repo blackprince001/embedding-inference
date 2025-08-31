@@ -1,9 +1,9 @@
 package server
 
 import (
-	"teiwrappergolang/internal/domain/entities"
-	"teiwrappergolang/internal/domain/errors"
-	pb "teiwrappergolang/protos/gen/v1"
+	"github.com/blackprince001/embedding-inference/internal/domain/entities"
+	"github.com/blackprince001/embedding-inference/internal/domain/errors"
+	pb "github.com/blackprince001/embedding-inference/protos/gen/v1"
 
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

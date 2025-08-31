@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"teiwrappergolang/internal/domain/entities"
+	"github.com/blackprince001/embedding-inference/internal/domain/entities"
 )
 
 type EmbeddingService interface {

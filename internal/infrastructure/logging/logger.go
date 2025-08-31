@@ -3,7 +3,7 @@ package logging
 import (
 	"fmt"
 
-	"teiwrappergolang/internal/config"
+	"github.com/blackprince001/embedding-inference/internal/config"
 
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"

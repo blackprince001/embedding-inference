@@ -12,10 +12,10 @@ import (
 	"strings"
 	"time"
 
-	"teiwrappergolang/internal/config"
-	"teiwrappergolang/internal/domain/entities"
-	"teiwrappergolang/internal/domain/errors"
-	"teiwrappergolang/internal/infrastructure/logging"
+	"github.com/blackprince001/embedding-inference/internal/config"
+	"github.com/blackprince001/embedding-inference/internal/domain/entities"
+	"github.com/blackprince001/embedding-inference/internal/domain/errors"
+	"github.com/blackprince001/embedding-inference/internal/infrastructure/logging"
 
 	"go.uber.org/zap"
 )

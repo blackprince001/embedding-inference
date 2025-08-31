@@ -1,4 +1,4 @@
-module teiwrappergolang
+module github.com/blackprince001/embedding-inference
 
 go 1.24.3
 

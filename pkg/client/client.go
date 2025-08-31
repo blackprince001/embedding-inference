@@ -4,12 +4,12 @@ import (
 	"context"
 	"fmt"
 
-	"teiwrappergolang/internal/config"
-	"teiwrappergolang/internal/domain/entities"
-	"teiwrappergolang/internal/domain/interfaces"
-	"teiwrappergolang/internal/infrastructure/logging"
-	"teiwrappergolang/internal/services/embedding"
-	"teiwrappergolang/internal/services/similarity"
+	"github.com/blackprince001/embedding-inference/internal/config"
+	"github.com/blackprince001/embedding-inference/internal/domain/entities"
+	"github.com/blackprince001/embedding-inference/internal/domain/interfaces"
+	"github.com/blackprince001/embedding-inference/internal/infrastructure/logging"
+	"github.com/blackprince001/embedding-inference/internal/services/embedding"
+	"github.com/blackprince001/embedding-inference/internal/services/similarity"
 )
 
 type Client struct {

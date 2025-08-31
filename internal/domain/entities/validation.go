@@ -5,7 +5,7 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"teiwrappergolang/internal/domain/errors"
+	"github.com/blackprince001/embedding-inference/internal/domain/errors"
 )
 
 type ValidationConfig struct {

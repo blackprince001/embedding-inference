@@ -3,8 +3,8 @@ package server
 import (
 	"context"
 
-	"teiwrappergolang/pkg/client"
-	pb "teiwrappergolang/protos/gen/v1"
+	"github.com/blackprince001/embedding-inference/pkg/client"
+	pb "github.com/blackprince001/embedding-inference/protos/gen/v1"
 
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"

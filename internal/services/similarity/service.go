@@ -5,9 +5,9 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"teiwrappergolang/internal/domain/entities"
-	"teiwrappergolang/internal/domain/errors"
-	"teiwrappergolang/internal/domain/interfaces"
+	"github.com/blackprince001/embedding-inference/internal/domain/entities"
+	"github.com/blackprince001/embedding-inference/internal/domain/errors"
+	"github.com/blackprince001/embedding-inference/internal/domain/interfaces"
 
 	"go.uber.org/zap"
 )

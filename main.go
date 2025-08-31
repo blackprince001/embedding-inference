@@ -6,14 +6,14 @@ import (
 	"log"
 	"net"
 
-	"teiwrappergolang/internal/config"
-	"teiwrappergolang/internal/infrastructure/logging"
-	"teiwrappergolang/internal/infrastructure/wrapper"
-	"teiwrappergolang/internal/server"
+	"github.com/blackprince001/embedding-inference/internal/config"
+	"github.com/blackprince001/embedding-inference/internal/infrastructure/logging"
+	"github.com/blackprince001/embedding-inference/internal/infrastructure/wrapper"
+	"github.com/blackprince001/embedding-inference/internal/server"
 
-	pb "teiwrappergolang/protos/gen/v1"
+	pb "github.com/blackprince001/embedding-inference/protos/gen/v1"
 
-	"teiwrappergolang/pkg/client"
+	"github.com/blackprince001/embedding-inference/pkg/client"
 
 	"go.uber.org/zap"
 	"google.golang.org/grpc"

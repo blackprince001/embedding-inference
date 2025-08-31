@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"teiwrappergolang/internal/domain/errors"
+	"github.com/blackprince001/embedding-inference/internal/domain/errors"
 )
 
 type TruncationDirection string

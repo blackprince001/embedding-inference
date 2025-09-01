@@ -16,17 +16,22 @@ services:
               capabilities: [gpu]
               count: 1  # Explicitly request 1 GPU; use 'all' for all GPUs or specify device IDs
     command: --model-id Qwen/Qwen3-Embedding-0.6B
+    networks:
+      - text-embeddings-network
 
   text-embeddings-client:
+    ports:
+      - "9090:9090"
     build:
       context: .
       dockerfile: docker/Dockerfile
     depends_on:
       - text-embeddings-inference
     volumes:
-      - ./configs/docker.yaml:/app/configs/config.yaml:ro
+      - ./configs/docker.yaml:/app/configs/docker.yaml:ro
+    networks:
+      - text-embeddings-network
 
 networks:
-  default:
-    name: text-embeddings-network
-
+  text-embeddings-network:
+    driver: bridge

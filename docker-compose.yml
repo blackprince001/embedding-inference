@@ -15,9 +15,7 @@ services:
             - driver: nvidia
               capabilities: [gpu]
               count: 1  # Explicitly request 1 GPU; use 'all' for all GPUs or specify device IDs
-    environment:
-      - MODEL_ID=Qwen/Qwen3-Embedding-0.6B  # Model ID as an environment variable
-    command: --model-id $$MODEL_ID  # Pass the model ID as a command argument
+    command: --model-id Qwen/Qwen3-Embedding-0.6B
 
   text-embeddings-client:
     build:

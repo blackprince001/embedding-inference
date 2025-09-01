@@ -67,5 +67,5 @@ func (r *SimilarityRequest) SetDefaults() {
 }
 
 type SimilarityResponse struct {
-	Similarities []float32 `json:"similarities"`
+	Similarities []float32 `json:"-"`
 }

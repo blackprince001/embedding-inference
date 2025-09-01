@@ -87,7 +87,7 @@ func (r *EmbedRequest) Validate() error {
 }
 
 type EmbedResponse struct {
-	Embeddings [][]float32 `json:"embeddings"`
+	Embeddings [][]float32 `json:"-"`
 }
 
 type EmbedAllRequest struct {
@@ -105,7 +105,7 @@ func (r *EmbedAllRequest) Validate() error {
 }
 
 type EmbedAllResponse struct {
-	Embeddings [][][]float32 `json:"embeddings"`
+	Embeddings [][][]float32 `json:"-"`
 }
 
 type SparseValue struct {
@@ -128,7 +128,7 @@ func (r *EmbedSparseRequest) Validate() error {
 }
 
 type EmbedSparseResponse struct {
-	Embeddings [][]SparseValue `json:"embeddings"`
+	Embeddings [][]SparseValue `json:"-"`
 }
 
 func BoolPtr(b bool) *bool {

@@ -45,26 +45,30 @@ func (s *Service) CalculateSimilarity(ctx context.Context, req *entities.Similar
 		return nil, fmt.Errorf("similarity request failed: %w", err)
 	}
 
-	var response entities.SimilarityResponse
+	var response []float32
 	if err := json.Unmarshal(responseData, &response); err != nil {
 		s.logger.Error("Failed to parse similarity response", zap.Error(err))
 		return nil, errors.NewTEIError("failed to parse response", errors.ErrorTypeBackend)
 	}
 
-	if len(response.Similarities) != len(req.Inputs.Sentences) {
+	si := entities.SimilarityResponse{
+		Similarities: response,
+	}
+
+	if len(si.Similarities) != len(req.Inputs.Sentences) {
 		s.logger.Error("Response similarity count mismatch",
 			zap.Int("expected", len(req.Inputs.Sentences)),
-			zap.Int("received", len(response.Similarities)),
+			zap.Int("received", len(si.Similarities)),
 		)
 		return nil, errors.NewTEIError("response similarity count mismatch", errors.ErrorTypeBackend)
 	}
 
 	s.logger.Debug("Similarity request completed",
-		zap.Int("similarities_count", len(response.Similarities)),
-		zap.Float32("avg_similarity", calculateAverage(response.Similarities)),
+		zap.Int("similarities_count", len(si.Similarities)),
+		zap.Float32("avg_similarity", calculateAverage(si.Similarities)),
 	)
 
-	return &response, nil
+	return &si, nil
 }
 
 func (s *Service) CalculatePairwiseSimilarity(ctx context.Context, sentences1, sentences2 []string) ([][]float32, error) {

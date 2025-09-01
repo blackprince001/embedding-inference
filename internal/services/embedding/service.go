@@ -45,17 +45,13 @@ func (s *Service) Embed(ctx context.Context, req *entities.EmbedRequest) (*entit
 		return nil, fmt.Errorf("embed request failed: %w", err)
 	}
 
-	var response entities.EmbedResponse
+	var response [][]float32
 	if err := json.Unmarshal(responseData, &response); err != nil {
 		s.logger.Error("Failed to parse embed response", zap.Error(err))
 		return nil, errors.NewTEIError("failed to parse response", errors.ErrorTypeBackend)
 	}
 
-	s.logger.Debug("Embed request completed",
-		zap.Int("embeddings_count", len(response.Embeddings)),
-	)
-
-	return &response, nil
+	return &entities.EmbedResponse{Embeddings: response}, nil
 }
 
 func (s *Service) EmbedAll(ctx context.Context, req *entities.EmbedAllRequest) (*entities.EmbedAllResponse, error) {
@@ -76,17 +72,13 @@ func (s *Service) EmbedAll(ctx context.Context, req *entities.EmbedAllRequest) (
 		return nil, fmt.Errorf("embed_all request failed: %w", err)
 	}
 
-	var response entities.EmbedAllResponse
+	var response [][][]float32
 	if err := json.Unmarshal(responseData, &response); err != nil {
 		s.logger.Error("Failed to parse embed_all response", zap.Error(err))
 		return nil, errors.NewTEIError("failed to parse response", errors.ErrorTypeBackend)
 	}
 
-	s.logger.Debug("EmbedAll request completed",
-		zap.Int("embeddings_count", len(response.Embeddings)),
-	)
-
-	return &response, nil
+	return &entities.EmbedAllResponse{Embeddings: response}, nil
 }
 
 func (s *Service) EmbedSparse(ctx context.Context, req *entities.EmbedSparseRequest) (*entities.EmbedSparseResponse, error) {
@@ -107,15 +99,11 @@ func (s *Service) EmbedSparse(ctx context.Context, req *entities.EmbedSparseRequ
 		return nil, fmt.Errorf("embed_sparse request failed: %w", err)
 	}
 
-	var response entities.EmbedSparseResponse
+	var response [][]entities.SparseValue
 	if err := json.Unmarshal(responseData, &response); err != nil {
 		s.logger.Error("Failed to parse embed_sparse response", zap.Error(err))
 		return nil, errors.NewTEIError("failed to parse response", errors.ErrorTypeBackend)
 	}
 
-	s.logger.Debug("EmbedSparse request completed",
-		zap.Int("embeddings_count", len(response.Embeddings)),
-	)
-
-	return &response, nil
+	return &entities.EmbedSparseResponse{Embeddings: response}, nil
 }

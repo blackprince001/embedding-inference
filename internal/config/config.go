@@ -38,7 +38,7 @@ type LogConfig struct {
 }
 
 func LoadConfig() (*Config, error) {
-	viper.SetConfigName("config")
+	viper.SetConfigName("docker")
 	viper.SetConfigType("yaml")
 	viper.AddConfigPath("./configs")
 	viper.AddConfigPath(".")

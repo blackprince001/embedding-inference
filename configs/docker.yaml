@@ -1,5 +1,5 @@
 tei:
-  base_url: "http://text-embeddings-inference:8080"
+  base_url: "http://text-embeddings-inference"
   timeout: "30s"
   max_retries: 3
   retry_delay: "1s"

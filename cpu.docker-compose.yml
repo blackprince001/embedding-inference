@@ -6,13 +6,6 @@ services:
     image: ghcr.io/huggingface/text-embeddings-inference:1.8
     volumes:
       - ./data:/data  # Mounts the local ./data directory to /data in the container
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              capabilities: [gpu]
-              count: 1  # Explicitly request 1 GPU; use 'all' for all GPUs or specify device IDs
     command: --model-id Qwen/Qwen3-Embedding-0.6B
     networks:
       - text-embeddings-network
